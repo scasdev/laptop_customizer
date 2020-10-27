@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import FeatureList from './FeatureList';
 import FEATURES from './FEATURES';
-import Total from './Total'
-import Summary from  './Summary'
+import SummaryList from './SummaryList';
 
 
 const USCurrencyFormat = new Intl.NumberFormat('en-US', {
@@ -65,17 +64,10 @@ class App extends Component {
               handleFeatureUpdate={(feature, newValue) => this.updateFeature(feature, newValue)}
             />
           </form>
-          <section className="main__summary">
-            <h2>Your cart</h2>
-            <Summary
-              state = {state}
-              USCurrencyFormat={USCurrencyFormat}              
-            />
-            <Total
-              state={state}
-              USCurrencyFormat={USCurrencyFormat}              
-            />
-          </section>
+          <SummaryList
+            state = {state}
+            USCurrencyFormat = {USCurrencyFormat}
+          />
         </main>
       </div>
     );

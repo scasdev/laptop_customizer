@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Summary extends Component {
+class SummaryItem extends Component {
     render() {
         
         const USCurrencyFormat = this.props.USCurrencyFormat
@@ -25,4 +25,4 @@ class Summary extends Component {
     }
 }
 
-export default Summary;
+export default SummaryItem;
