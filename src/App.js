@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import MainForm from './MainForm';
-import SPECS from './SPECS';
-import PARTS from './PARTS';
+import FEATURES from './FEATURES';
 import SummaryList from './SummaryList';
 
 
@@ -11,8 +10,7 @@ const USCurrencyFormat = new Intl.NumberFormat('en-US', {
   currency: 'USD'
 });
 
-const specs = SPECS;
-const parts = PARTS;
+const features = FEATURES;
 
 class App extends Component {
   constructor(props) {
@@ -59,8 +57,7 @@ class App extends Component {
         <main>
           <MainForm
               state={state}
-              specs={specs}
-              parts={parts}
+              features={features}
               USCurrencyFormat={USCurrencyFormat}
               handleFeatureUpdate={(feature, newValue) => this.updateFeature(feature, newValue)}
             />

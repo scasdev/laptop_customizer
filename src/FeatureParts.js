@@ -1,41 +1,26 @@
 import React, { Component } from 'react';
-import slugify from 'slugify';
+import FeatureSpecs from './FeatureSpecs'
 
 class FeatureParts extends Component {
     render() {
-        const parts = this.props.parts
-        const state = this.props.state
-        const USCurrencyFormat = this.props.USCurrencyFormat
-        const handleFeatureUpdate = this.props.handleFeatureUpdate
+        const features = this.props.features
 
         return (
 
-            Object.keys(parts).map((feature, idx) => {
+            Object.keys(features).map((feature, idx) => {
                 const featureHash = feature + '-' + idx;
-                const options = parts[feature].map(item => {
-                    const itemHash = slugify(JSON.stringify(item));
-                    return (
-                        <div key={itemHash} className="feature__item">
-                            <input
-                                type="radio"
-                                id={itemHash}
-                                className="feature__option"
-                                name={slugify(feature)}
-                                checked={item.name === state[feature].name}
-                                onChange={e => handleFeatureUpdate(feature, item)}
-                            />
-                            <label htmlFor={itemHash} className="feature__label">
-                                {item.name} ({USCurrencyFormat.format(item.cost)})
-          </label>
-                        </div>
-                    );
-                });
+                
                 return (
                     <fieldset className="feature" key={featureHash}>
                         <legend className="feature__name">
                             <h3>{feature}</h3>
                         </legend>
-                        {options}
+                        <FeatureSpecs
+                        feature = {feature}
+                        state = {this.props.state}
+                        features = {this.props.features}
+                        USCurrencyFormat = {this.props.USCurrencyFormat}
+                        handleFeatureUpdate = {this.props.handleFeatureUpdate} />
                     </fieldset>
                 );
             })
